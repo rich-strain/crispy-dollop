@@ -5,7 +5,7 @@ module.exports = {
   // Get All Users
   async getAllUsers(req, res) {
     try {
-      res.send('Create User');
+      res.send('Get All Users');
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -21,11 +21,11 @@ module.exports = {
   },
   // Update User By Id
   async updateUser(req, res) {
-    res.send('Update User');
+    res.send('Update User By Id');
   },
   // Delete User By Id
   async deleteUser(req, res) {
-    res.send('Delete User');
+    res.send('Delete User By Id');
   },
   // Add Friend
   async addFriend(req, res) {

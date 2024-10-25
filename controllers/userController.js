@@ -67,10 +67,40 @@ module.exports = {
   },
   // Add Friend
   async addFriend(req, res) {
-    res.send('Add Friend');
+    try {
+      // Find first user by userId then add friend's userId to the user's friends array in the User collection
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { runValidators: true, new: true } //validators are run on update
+      );
+
+      // If no user is found, send a 404 error response
+      if (!user) {
+        return res.status(404).json({ message: 'UserId Not Found' });
+      }
+
+      // Respond with the updated user document
+      res.json(user);
+    } catch (err) {
+      // Return error
+      res.status(500).json(err);
+    }
   },
   // Delete Friend
   async deleteFriend(req, res) {
-    res.send('Get All Thoughts');
+    try {
+      const user = await User.findOneAndUpdate({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } });
+
+      // If userId not found, send a 404 error response
+      if (!user) {
+        return res.status(404).json({ message: 'User Not Found' });
+      }
+
+      res.json(user);
+    } catch (err) {
+      // Return error
+      res.status(500).json(err);
+    }
   },
 };

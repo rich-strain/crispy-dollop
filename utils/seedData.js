@@ -23,8 +23,8 @@ const thoughtSeeds = [
       {
         reactionBody: 'Ay, carumba!',
         username: 'Bart',
-        reactionId: '66e3049230e554bdde0453f1',
-        createdAt: '2024-09-20T12:33:00',
+        //reactionId: '66e3049230e554bdde0453f1',
+        //createdAt: '2024-09-20T12:33:00',
       },
     ],
   },
@@ -35,8 +35,8 @@ const thoughtSeeds = [
       {
         reactionBody: 'Why you little...',
         username: 'Homer',
-        reactionId: '66e3049130e554bdde0450a9',
-        createdAt: '2024-09-20T11:32:00',
+        //reactionId: '66e3049130e554bdde0450a9',
+        //createdAt: '2024-09-20T11:32:00',
       },
     ],
   },
